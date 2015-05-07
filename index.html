@@ -19,6 +19,7 @@
 		<script type="text/javascript">
 
 			//Get Google API Key
+			var google_api_key = "API_KEY_HERE";
 
 			var data = [];
 			var data_id = [];
@@ -115,7 +116,7 @@
 				// Parameter: token - used for getting the next set of results when youtube_search_list is called
 
 				var data_obj = {
-					part: 'id, snippet, contentDetails, statistics, status, topicDetails', // part = a string of attributes to be retrieved
+					part: 'id, snippet, contentDetails, statistics, status, topicDetails, recordingDetails', // part = a string of attributes to be retrieved
 					id: ids, // id = a string of ids separated by commas to be retrieved
 					maxResults: return_results // maxResults = the maximum number of results retrieved per set, can be changed above
 				}
@@ -140,7 +141,7 @@
 
 							// Just for printing on html
 							var obj = response.result.items[i]
-							$("#results").append("<div><h4>"+obj.snippet.title+"</h4><h5>contentDetails</h5><pre style='width:100%'>"+JSON.stringify(obj.contentDetails)+"</pre><h5>snippet</h5><pre style='width:100%'>"+JSON.stringify(obj.snippet)+"</pre><h5>Statistics</h5><ul><li>commentCount:"+obj.statistics.commentCount+"</li><li>dislikeCount: "+obj.statistics.dislikeCount+"</li><li>likeCount: "+obj.statistics.likeCount+"</li><li>viewCount: "+obj.statistics.viewCount+"</li></ul></div>")
+							$("#results").append("<div><h4>"+obj.snippet.title+"</h4><h5>recordingDetails</h5><pre style='width:100%'>"+JSON.stringify(obj.recordingDetails)+"</pre><h5>contentDetails</h5><pre style='width:100%'>"+JSON.stringify(obj.contentDetails)+"</pre><h5>snippet</h5><pre style='width:100%'>"+JSON.stringify(obj.snippet)+"</pre><h5>Statistics</h5><ul><li>commentCount:"+obj.statistics.commentCount+"</li><li>dislikeCount: "+obj.statistics.dislikeCount+"</li><li>likeCount: "+obj.statistics.likeCount+"</li><li>viewCount: "+obj.statistics.viewCount+"</li></ul></div>")
 						}
 					}
 
